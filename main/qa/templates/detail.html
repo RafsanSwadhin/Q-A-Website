@@ -16,6 +16,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
+
+                <form class="w-100">
+                    <div class="col-md-8 offset-2">
+                        <div class="input-group mb-3">
+                            <input type="text" name = "qu" class="form-control form-control-lg" placeholder="Search here" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="submit">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+
+
+
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home</a>
@@ -37,7 +51,6 @@
         </div>
     </nav>
 
-
     <div class="container py-5">
         <div class="row">
             <form class="w-100">
@@ -51,53 +64,6 @@
             </div>
             </form>
         </div>
-    </div>
-
-
-    <div class="container">
-        {% for q in quest %}
-        <div class="card mb-3">
-            <div class="card-body">
-                <h4 class="card-title"><a href="/detail/{{q.id}}">{{q.title}}</a></h4>
-                
-                <p class="card-text">{{q.detail}}</p>
-                <p>
-                    <a href="#" class="mr-2">{{q.user.username}}</a>
-                    <a href="#" class="mr-2">5 Answers</a>
-                    <a href="#" class="mr-2">10 Comments</a>
-                </p>
-            </div>
-        </div>
-        {% endfor %}
-
-        <div class="container">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                    {% if quest.has_previous %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ quest.previous_page_number }}">Previous</a>
-                    </li>
-                    {% endif %}
-                    
-                    {% for i in quest.paginator.page_range %}
-                    {% if quest.number == i %}
-                    <li class="page-item active">
-                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-                    </li>
-                    {% else %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-                    </li>
-                    {% endif %}
-                    {% endfor %}               
-                    {% if quest.has_next %}
-                    <li class="page-item">
-                        <a class="page-link" href="?page={{ quest.next_page_number }}">Next</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
+    </div> 
 </body>
 </html>
-
