@@ -8,13 +8,6 @@ class Question(models.Model):
     detail =models.TextField()
     created_at = models.DateField(auto_now_add = True)
 
-    def save(self, *args, **kwargs):
-        self.title = self.title.capitalize()  # Capitalize the first letter
-        super().save(*args, **kwargs)
-
-    def __str__(self):
-       return self.title
-
 #answer model 
 class Answer(models.Model):
     question = models.ForeignKey(Question,on_delete = models.CASCADE)

@@ -14,6 +14,6 @@ def home(request):
     return render(request, 'home.html', {'quest': quest})
 
 def detail(request,id):
-    quest = Question.objects.all()
+    quest = Question.objects.get(pk=id)
     return render(request,'detail.html',{'quest':quest})
     
