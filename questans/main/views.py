@@ -11,3 +11,7 @@ def home(request):
     page_num = request.GET.get('page',1)
     quests = paginator.page(page_num)
     return render(request,'home.html',{'quests':quests})
+
+def detail(request,id):
+    quest = Question.objects.get(pk=id)
+    return render(request,'detail.html',{'quest':quest})
